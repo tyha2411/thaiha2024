@@ -7,6 +7,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
 import vn.edu.usth.weather.ForecastFragment;
 
 public class WeatherActivity extends AppCompatActivity {
@@ -23,10 +26,18 @@ public class WeatherActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+
         });
 
-        ForecastFragment firstFragment = new ForecastFragment();
-        getSupportFragmentManager().beginTransaction().add(R.id.container, firstFragment).commit();
+//        ForecastFragment firstFragment = new ForecastFragment();
+//        getSupportFragmentManager().beginTransaction().add(R.id.container, firstFragment).commit();
+//
+//        WeatherFragment secondFragment = new WeatherFragment();
+//        getSupportFragmentManager().beginTransaction().add(R.id.weather, firstFragment).commit();
+
+        ViewPager viewPager = findViewById(R.id.view_pager);
+        FragmentPagerAdapter adapter = new WeatherAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(adapter);
     }
 
     @Override
