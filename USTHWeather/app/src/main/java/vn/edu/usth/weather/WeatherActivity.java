@@ -10,6 +10,8 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.tabs.TabLayout;
+
 import vn.edu.usth.weather.ForecastFragment;
 
 public class WeatherActivity extends AppCompatActivity {
@@ -34,10 +36,17 @@ public class WeatherActivity extends AppCompatActivity {
 //
 //        WeatherFragment secondFragment = new WeatherFragment();
 //        getSupportFragmentManager().beginTransaction().add(R.id.weather, firstFragment).commit();
-
         ViewPager viewPager = findViewById(R.id.view_pager);
         FragmentPagerAdapter adapter = new WeatherAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
+
+        TabLayout tabLayout = findViewById(R.id.tab);
+        tabLayout.setupWithViewPager(viewPager);
+
+        tabLayout.getTabAt(0).setText("View");
+        tabLayout.getTabAt(1).setText("Ha Noi");
+        tabLayout.getTabAt(2).setText("Paris");
+        tabLayout.getTabAt(3).setText("Spain");
     }
 
     @Override
