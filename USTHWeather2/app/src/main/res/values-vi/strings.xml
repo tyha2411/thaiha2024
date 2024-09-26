@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">USTH Weather2</string>
+    <string name="hello_blank_fragment">Xin chào fragment trống</string>
+    <string name="monday">Thứ Hai</string>
+    <string name="tuesday">Thứ Ba</string>
+    <string name="wednesday">Thứ Tư</string>
+    <string name="thursday">Thứ Năm</string>
+    <string name="friday">Thứ Sáu</string>
+    <string name="saturday">Thứ Bảy</string>
+    <string name="sunday">Chủ Nhật</string>
+    <string name="partly_cloudy">Có mây\n20C-26C</string>
+    <string name="hot">Nóng\n30C-36C</string>
+    <string name="cloud_with_lightning">Có mây có sấm\n20C-24C</string>
+    <string name="rain">Mưa\n16C-19C</string>
+    <string name="sunny">Nắng\n30C-36C</string>
+    <string name="partly_cloud_friday">Có mây\n20C-26C</string>
+    <string name="partly_cloud_thursday">Có mây\n24C-29C</string>
+    <string name="hanoi">Hà Nội</string>
+</resources>

@@ -8,13 +8,13 @@
     tools:context=".ForecastFragment">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dip"
+        android:layout_height="@dimen/item_height"
         android:orientation="horizontal"
-        android:background="#edc0e6">
+        android:background="@color/forecast_background">
         <TextView
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:text="Monday"
+            android:text="@string/monday"
             android:gravity="center"/>
 
         <ImageView
@@ -26,18 +26,18 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Partly Cloud \n 20C-26C"
+            android:text="@string/partly_cloudy"
             android:gravity="center"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dip"
+        android:layout_height="@dimen/item_height"
         android:orientation="horizontal"
-        android:background="#edc0e6">
+        android:background="@color/forecast_background">
         <TextView
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:text="Tuesday"
+            android:text="@string/tuesday"
             android:gravity="center"/>
 
         <ImageView
@@ -49,18 +49,18 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Hot \n 30C-36C"
+            android:text="@string/hot"
             android:gravity="center"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dip"
+        android:layout_height="@dimen/item_height"
         android:orientation="horizontal"
-        android:background="#edc0e6">
+        android:background="@color/forecast_background">
         <TextView
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:text="Wednesday"
+            android:text="@string/wednesday"
             android:gravity="center"/>
 
         <ImageView
@@ -72,18 +72,18 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text=" Cloud with lightning \n 20C-24C"
+            android:text="@string/cloud_with_lightning"
             android:gravity="center"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dip"
+        android:layout_height="@dimen/item_height"
         android:orientation="horizontal"
-        android:background="#edc0e6">
+        android:background="@color/forecast_background">
         <TextView
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:text="Thursday"
+            android:text="@string/thursday"
             android:gravity="center"/>
 
         <ImageView
@@ -95,18 +95,18 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Partly Cloud \n 24C-29C"
+            android:text="@string/partly_cloudy"
             android:gravity="center"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dip"
+        android:layout_height="@dimen/item_height"
         android:orientation="horizontal"
-        android:background="#edc0e6">
+        android:background="@color/forecast_background">
         <TextView
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:text="Friday"
+            android:text="@string/friday"
             android:gravity="center"/>
 
         <ImageView
@@ -118,22 +118,22 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Partly Cloud \n 20C-26C"
+            android:text="@string/partly_cloudy"
             android:gravity="center"/>
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/SaturdayImage"
         android:layout_width="match_parent"
-        android:layout_height="50dip"
-        android:background="#edc0e6"
+        android:layout_height="@dimen/item_height"
+        android:background="@color/forecast_background"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Saturday" />
+            android:text="@string/saturday" />
 
         <ImageView
             android:layout_width="100dp"
@@ -145,17 +145,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Rain\n 16C-19C" />
+            android:text="@string/rain" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dip"
+        android:layout_height="@dimen/item_height"
         android:orientation="horizontal"
-        android:background="#edc0e6">
+        android:background="@color/forecast_background">
         <TextView
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:text="Sunday"
+            android:text="@string/sunday"
             android:gravity="center"/>
 
         <ImageView
@@ -167,7 +167,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Sunny \n 30C-36C"
+            android:text="@string/sunny"
             android:gravity="center"/>
     </LinearLayout>
 
