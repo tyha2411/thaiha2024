@@ -170,6 +170,102 @@
             android:text="@string/sunny"
             android:gravity="center"/>
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_height"
+        android:orientation="horizontal"
+        android:background="@color/forecast_background">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="@string/monday"
+            android:gravity="center"/>
+
+        <ImageView
+            android:id="@+id/MondayImage"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:src="@drawable/rainny"
+            tools:ignore="DuplicateIds" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/partly_cloudy"
+            android:gravity="center"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_height"
+        android:orientation="horizontal"
+        android:background="@color/forecast_background">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="@string/tuesday"
+            android:gravity="center"/>
+
+        <ImageView
+            android:id="@+id/TuesdayImage"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:src="@drawable/sunny"
+            tools:ignore="DuplicateIds" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/hot"
+            android:gravity="center"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_height"
+        android:orientation="horizontal"
+        android:background="@color/forecast_background">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="@string/wednesday"
+            android:gravity="center"/>
+
+        <ImageView
+            android:id="@+id/WednesdayImage"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:src="@drawable/lightning"
+            tools:ignore="DuplicateIds" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/cloud_with_lightning"
+            android:gravity="center"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_height"
+        android:orientation="horizontal"
+        android:background="@color/forecast_background">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="@string/thursday"
+            android:gravity="center"/>
+
+        <ImageView
+            android:id="@+id/ThursdayImage"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:src="@drawable/sunandcloud"
+            tools:ignore="DuplicateIds" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/partly_cloudy"
+            android:gravity="center"/>
+    </LinearLayout>
 
 
 
