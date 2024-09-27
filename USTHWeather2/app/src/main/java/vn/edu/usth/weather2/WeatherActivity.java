@@ -1,5 +1,25 @@
 package vn.edu.usth.weather2;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
+import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 import android.os.Bundle;
 import android.util.Log;
 
@@ -13,7 +33,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.tabs.TabLayout;
 
 public class WeatherActivity extends AppCompatActivity {
-
+    private MediaPlayer mediaPlayer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +59,34 @@ public class WeatherActivity extends AppCompatActivity {
 //        WeatherFragment secondFragment = new WeatherFragment();
 //
 //        getSupportFragmentManager().beginTransaction().add(R.id.container, secondFragment).commit();
+        try {
+            InputStream inputStream = getResources().openRawResource(R.raw.song);
+            File outputFile = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC), "song.mp3");
+            OutputStream outputStream = new FileOutputStream(outputFile);
+
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = inputStream.read(buffer)) > 0) {
+                outputStream.write(buffer, 0, length);
+            }
+
+            inputStream.close();
+            outputStream.close();
+
+            // Initialize MediaPlayer
+            mediaPlayer = new MediaPlayer();
+            mediaPlayer.setDataSource(outputFile.getAbsolutePath());
+            mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mediaPlayer) {
+                    mediaPlayer.start();
+                }
+            });
+            mediaPlayer.prepareAsync();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     public WeatherActivity() {
         super();
