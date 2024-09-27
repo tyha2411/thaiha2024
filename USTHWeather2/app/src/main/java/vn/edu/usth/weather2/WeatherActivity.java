@@ -1,16 +1,20 @@
 package vn.edu.usth.weather2;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -45,12 +49,13 @@ public class WeatherActivity extends AppCompatActivity {
             return insets;
 
         } );
+        Adapter adapter = new Adapter(getSupportFragmentManager());
         TabLayout tabLayout;
         tabLayout = findViewById(R.id.tab_layout);
         ViewPager viewPager = findViewById(R.id.view_pager);
-        Adapter adapter = new Adapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
+
         // Create a new Fragment to be placed in the activity
 //         ForecastFragment firstFragment = new ForecastFragment();
 //        // Add the fragment to the 'container' FrameLayout
@@ -87,6 +92,34 @@ public class WeatherActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        Toolbar toolbar = findViewById(R.id.toolBar);
+        setSupportActionBar(toolbar);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        // Handle the refresh action
+        if (id == R.id.refresh) {
+            refreshContent();
+            return true;
+        }
+        // Handle the settings action
+        if (id == R.id.settings) {
+            Intent intent = new Intent(this, vn.edu.usth.weather.ActionToolbar.class);
+            startActivity(intent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void refreshContent() {
+        Toast.makeText(this, "Refreshing", Toast.LENGTH_SHORT).show();
     }
     public WeatherActivity() {
         super();
@@ -107,18 +140,28 @@ public class WeatherActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
         Log.i("Weather", "onDestroy here");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+            mediaPlayer.pause();
+        }
         Log.i("Weather", "onPause here");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        if (mediaPlayer != null && !mediaPlayer.isPlaying()) {
+            mediaPlayer.start();
+        }
         Log.i("Weather", "onResume here");
     }
 }
