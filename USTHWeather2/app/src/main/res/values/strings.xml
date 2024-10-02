@@ -16,4 +16,6 @@
     <string name="partly_cloud_friday">Partly Cloud\n20C-26C</string>
     <string name="partly_cloud_thursday">Partly Cloud\n24C-29C</string>
     <string name="hanoi">Hanoi</string>
+    <string name="refresh">Refresh</string>
+    <string name="settings">Settings</string>
 </resources>

@@ -5,10 +5,10 @@
         android:id="@+id/refresh"
         android:icon="@drawable/baseline_refresh_24"
         app:showAsAction="always"
-        android:title="Refresh"/>
+        android:title="@string/refresh"/>
     <item
         android:id="@+id/settings"
         android:icon="@drawable/baseline_more_vert_24"
-        app:showAsAction="always"
-        android:title="Settings"/>
+        app:showAsAction="never"
+        android:title="@string/settings"/>
 </menu>

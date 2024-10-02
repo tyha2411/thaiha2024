@@ -6,6 +6,9 @@ import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -64,9 +67,38 @@ public class WeatherActivity extends AppCompatActivity {
 //        WeatherFragment secondFragment = new WeatherFragment();
 //
 //        getSupportFragmentManager().beginTransaction().add(R.id.container, secondFragment).commit();
+        final Handler handler = new Handler(Looper.getMainLooper()) {
+            @Override
+            public void handleMessage(Message msg) {
+// This method is executed in main thread
+                String content = msg.getData().getString("server_response");
+                Toast.makeText(WeatherActivity.this, content, Toast.LENGTH_SHORT).show();
+            }
+        };
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+// this method is run in a worker thread
+                try {
+// wait for 5 seconds to simulate a long network access
+                    Thread.sleep(5000);
+                }
+                catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+// Assume that we got our data from server
+                Bundle bundle = new Bundle();
+                bundle.putString("server_response", "some sample json here");
+// notify main thread
+                Message msg = new Message();
+                msg.setData(bundle);
+                handler.sendMessage(msg);
+            }
+        });
+        t.start();
         try {
-            InputStream inputStream = getResources().openRawResource(R.raw.song);
-            File outputFile = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC), "song.mp3");
+            InputStream inputStream = getResources().openRawResource(R.raw.song2);
+            File outputFile = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC), "song2.mp3");
             OutputStream outputStream = new FileOutputStream(outputFile);
 
             byte[] buffer = new byte[1024];
@@ -111,7 +143,7 @@ public class WeatherActivity extends AppCompatActivity {
         }
         // Handle the settings action
         if (id == R.id.settings) {
-            Intent intent = new Intent(this, vn.edu.usth.weather.ActionToolbar.class);
+            Intent intent = new Intent(this, vn.edu.usth.weather2.ActionToolbar.class);
             startActivity(intent);
             return true;
         }
